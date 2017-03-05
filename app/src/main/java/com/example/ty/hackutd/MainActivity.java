@@ -3,27 +3,18 @@ package com.example.ty.hackutd;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.Handler;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jmedeisis.bugstick.Joystick;
 import com.jmedeisis.bugstick.JoystickListener;
@@ -33,10 +24,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.util.Set;
 import java.util.UUID;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SensorEventListener{
 
 
     private static String address = "34:02:86:BA:E8:E2";
@@ -69,6 +59,14 @@ public class MainActivity extends AppCompatActivity {
     final byte[] release_buf = release.getBytes();
 
     final byte[] quit_buf = quit.getBytes();
+
+
+    private final float[] mAccelerometerReading = new float[3];
+    private final float[] mMagnetometerReading = new float[3];
+
+    private final float[] mRotationMatrix = new float[9];
+    private final float[] mOrientationAngles = new float[3];
+
 
     /** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
@@ -118,37 +116,19 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         while(mSensor == null) {
             out.append("mSensor is null\n");
-            mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
+            mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ALL);
         }
         out.append("\n...In onStart()...");
     }
-int i = 5;
+
+
     public void onResume() {
         super.onResume();
-        mSensorManager.registerListener(new SensorEventListener() {
-            int counter = 0;
-            @Override
-            public void onSensorChanged(SensorEvent sensorEvent) {
-                if ( ++counter != 20) {
-                    return;
 
-                }
-                counter = 0;
-                System.out.println("...Trigger onSensorChanged.");
-                System.out.println(sensorEvent.sensor.getName());
-                if (sensorEvent.sensor.getType() == Sensor.TYPE_ROTATION_VECTOR) {
-                    //System.out.println("Azimith: " + sensorEvent.values[0]);
-                    //System.out.println("Pitch: " + sensorEvent.values[1]);
-                    //System.out.println("Roll: " + sensorEvent.values[2]);
-                    System.out.println(sensorEvent.values.toString());
-                }
-            }
-
-            @Override
-            public void onAccuracyChanged(Sensor sensor, int i) {
-                out.append("...Trigger onAccuracyChanged\n");
-            }
-        }, mSensor,SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+                SensorManager.SENSOR_DELAY_GAME);
+        mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),
+                SensorManager.SENSOR_DELAY_GAME);
 
         out.append("\n...In onResume...\n...Attempting client connect...");
 
@@ -278,6 +258,9 @@ int i = 5;
     public void onPause() {
         super.onPause();
 
+        // Don't receive any more updates from either sensor.
+        mSensorManager.unregisterListener(this);
+
         //out.append("\n...Hello\n");
         InputStream inStream;
         try {
@@ -335,172 +318,99 @@ int i = 5;
     }
 
 
-}
-    /*BluetoothAdapter mBluetoothAdapter;
-    private BluetoothSocket btSocket = null;
-    private static final String TAG = "MAIN";
-    private OutputStream outStream = null;
 
 
-
-
-    // Create a BroadcastReceiver for ACTION_FOUND.
-    private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if (BluetoothDevice.ACTION_FOUND.equals(action)) {
-                // Discovery has found a device. Get the BluetoothDevice
-                // object and its info from the Intent.
-                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                String deviceName = device.getName();
-                String deviceHardwareAddress = device.getAddress(); // MAC address
-            }
-        }
-    };
-
+    // Sensor Shit
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        // Do something here if sensor accuracy changes.
+        // You must implement this callback in your code.
+    }
 
-        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        if (mBluetoothAdapter == null) {
-            Toast.makeText(getApplicationContext(), "Get a better phone lol", Toast.LENGTH_LONG).show();
+    // Get readings from accelerometer and magnetometer. To simplify calculations,
+    // consider storing these readings as unit vectors.
+    boolean dirty1 = false;
+    boolean dirty2 = false;
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            System.arraycopy(event.values, 0, mAccelerometerReading,
+                    0, mAccelerometerReading.length);
+            dirty1 = true;
+        }
+        else if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD) {
+            System.arraycopy(event.values, 0, mMagnetometerReading,
+                    0, mMagnetometerReading.length);
+            dirty2 = true;
         }
 
-        if (!mBluetoothAdapter.isEnabled()) {
-            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+        if (dirty1 && dirty2) {
+            updateOrientationAngles();
         }
+    }
 
-        // Register for broadcasts when a device is discovered.
-        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-        registerReceiver(mReceiver, filter);
+    int x = 1;
+    // Compute the three orientation angles based on the most recent readings from
+    // the device's accelerometer and magnetometer.
+    public void updateOrientationAngles() {
+        // Update rotation matrix, which is needed to update orientation angles.
+        mSensorManager.getRotationMatrix(mRotationMatrix, null,
+                mAccelerometerReading, mMagnetometerReading);
 
-        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+        int worldAxisX = SensorManager.AXIS_X;
+        int worldAxisZ = SensorManager.AXIS_Z;
+        float[] adjustedRotationMatrix = new float[9];
+        SensorManager.remapCoordinateSystem(mRotationMatrix, worldAxisX, worldAxisZ, adjustedRotationMatrix);
 
-        if (pairedDevices.size() > 0) {
-            // There are paired devices. Get the name and address of each paired device.
-            for (BluetoothDevice device : pairedDevices) {
-                String deviceName = device.getName();
-                String deviceHardwareAddress = device.getAddress(); // MAC address
-            }
-        } else {
-            System.out.println("No previously paired devices");
-            //boolean began = mBluetoothAdapter.startDiscovery();
-            //System.out.println(began);
-
+        for (int i = 0; i < 9; ++i) {
+            mRotationMatrix[i] = adjustedRotationMatrix[i];
         }
+        // "mRotationMatrix" now has up-to-date information.
 
-        BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
-        String message = "Fuck you, Tony Romo";
-        byte[] buf = message.getBytes();
+
+
+        mSensorManager.getOrientation(mRotationMatrix, mOrientationAngles);
+
+        // "mOrientationAngles" now has up-to-date information.
+        double azimuth = (mOrientationAngles[0] + (Math.PI / 2.0));
+        double roll = (mOrientationAngles[2] + (Math.PI / 2.0));
+
+        double y;
+        double x;
+
+        double upper_bound;
+
+        if (roll >= 1 && roll <= Math.PI)
+            y = 1;
+        else if (roll <= -1 || roll > Math.PI)
+            y = -1;
+        else
+            y = roll;
+
+        if (azimuth >= 1 && azimuth <= Math.PI)
+            x = 1;
+        else if (azimuth <= -1 || azimuth > Math.PI)
+            x = -1;
+        else
+            x = azimuth;
+
+        //System.out.println("x: " + x + ", y" + y);
+
+        String mouse = "mouse " + x + " " + y + "\n";
+        final byte[] mouse_buf = mouse.getBytes();
         try {
-            btSocket = device.createRfcommSocketToServiceRecord(myUUID);
+            outStream.write(mouse_buf);
         } catch (IOException e) {
-            Toast.makeText(getApplicationContext(), "Failed to create Socket", Toast.LENGTH_LONG).show();
-        }
-
-        System.out.println("btSocket");
-        try {
-            outStream = btSocket.getOutputStream();
-
-        } catch (IOException e) {
-            Toast.makeText(getApplicationContext(), "Failed to get btSocket stream", Toast.LENGTH_LONG).show();
-        }
-
-        try {
-            outStream.write(buf);
-        } catch (IOException e) {
-            Toast.makeText(getApplicationContext(), "Failed to write to buffer", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
+        /// double yaw = Math.atan2(mRotationMatrix[3],mRotationMatrix[0]);
+        //double pitch = Math.atan2(-mRotationMatrix[6], Math.sqrt(mRotationMatrix[7] * mRotationMatrix[7] + mRotationMatrix[8] * mRotationMatrix[8]));
+        //double roll = Math.atan2(mRotationMatrix[7], mRotationMatrix[8]);
 
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        // Don't forget to unregister the ACTION_FOUND receiver.
-        unregisterReceiver(mReceiver);
-    }
-
-    private class ConnectThread extends Thread {
-        private final BluetoothSocket mmSocket;
-        private final BluetoothDevice mmDevice;
-
-        public ConnectThread(BluetoothDevice device) {
-            // Use a temporary object that is later assigned to mmSocket
-            // because mmSocket is final.
-            BluetoothSocket tmp = null;
-            mmDevice = device;
-
-            try {
-                // Get a BluetoothSocket to connect with the given BluetoothDevice.
-                // MY_UUID is the app's UUID string, also used in the server code.
-                tmp = device.createRfcommSocketToServiceRecord(myUUID);
-            } catch (IOException e) {
-                Log.e(TAG, "Socket's create() method failed", e);
-            }
-            mmSocket = tmp;
-        }
-
-        public void run() {
-            // Cancel discovery because it otherwise slows down the connection.
-            mBluetoothAdapter.cancelDiscovery();
-
-            try {
-                // Connect to the remote device through the socket. This call blocks
-                // until it succeeds or throws an exception.
-                mmSocket.connect();
-            } catch (IOException connectException) {
-                // Unable to connect; close the socket and return.
-                try {
-                    mmSocket.close();
-                } catch (IOException closeException) {
-                    Log.e(TAG, "Could not close the client socket", closeException);
-                }
-                return;
-            }
-
-            // The connection attempt succeeded. Perform work associated with
-            // the connection in a separate thread.
-           // manageMyConnectedSocket(mmSocket);
-        }
-
-        // Closes the client socket and causes the thread to finish.
-        public void cancel() {
-            try {
-                mmSocket.close();
-            } catch (IOException e) {
-                Log.e(TAG, "Could not close the client socket", e);
-            }
-        }
-    }*/
-
+}
