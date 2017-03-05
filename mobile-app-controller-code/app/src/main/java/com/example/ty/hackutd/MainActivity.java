@@ -282,7 +282,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         if (outStream != null) {
             try {
                 outStream.flush();
+                outStream.write(release_buf);
+                outStream.flush();
+                outStream.write(quit_buf);
+
             } catch (IOException e) {
+                e.printStackTrace();
+
             }
         }
 
@@ -295,6 +301,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     public void onStop() {
         super.onStop();
         out.append("\n...In onStop()...");
+        try {
+            outStream.flush();
+            outStream.write(release_buf);
+            outStream.flush();
+            outStream.write(quit_buf);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void onDestroy() {
