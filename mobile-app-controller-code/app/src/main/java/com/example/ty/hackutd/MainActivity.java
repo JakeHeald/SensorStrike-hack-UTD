@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     TextView out;
     Button btn_quit;
     Button btn_reload;
+    Button btn_delta;
+
     private SensorManager mSensorManager;
     private Sensor mSensor;
     private static final int REQUEST_ENABLE_BT = 1;
@@ -231,6 +233,17 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 }
             }
         });
+
+        btn_delta = (Button) findViewById(R.id.delta);
+        btn_delta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(delta)
+                    delta = false;
+                else
+                    delta = true;
+            }
+        });
     }
 
     // Handle volume button left click and right click
@@ -365,6 +378,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
     }
 
+    double prev_azimuth = 0;
+    double prev_roll = 0;
+    boolean delta_dirty = false;
+
+    boolean delta = false;
+
     // Compute the three orientation angles based on the most recent readings from
     // the device's accelerometer and magnetometer.
     public void updateOrientationAngles() {
@@ -387,24 +406,39 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         double azimuth = (mOrientationAngles[0] + (Math.PI / 2.0));
         double roll = (mOrientationAngles[2] + (Math.PI / 2.0));
 
-        double y;
-        double x;
+        double y = 0;
+        double x = 0;
 
-        double upper_bound;
 
-        if (roll >= 1 && roll <= Math.PI)
-            y = 1;
-        else if (roll <= -1 || roll > Math.PI)
-            y = -1;
-        else
-            y = roll;
+        if (delta) {
+            // Delta mode
 
-        if (azimuth >= 1 && azimuth <= Math.PI)
-            x = 1;
-        else if (azimuth <= -1 || azimuth > Math.PI)
-            x = -1;
-        else
-            x = azimuth;
+            if (!delta_dirty) {
+                delta_dirty = true;
+            }
+            else {
+                x = azimuth - prev_azimuth;
+                y = roll - prev_roll;
+            }
+
+            prev_azimuth = azimuth;
+            prev_roll = roll;
+        }
+        else {
+            if (roll >= 1 && roll <= Math.PI)
+                y = 1;
+            else if (roll <= -1 || roll > Math.PI)
+                y = -1;
+            else
+                y = roll;
+
+            if (azimuth >= 1 && azimuth <= Math.PI)
+                x = 1;
+            else if (azimuth <= -1 || azimuth > Math.PI)
+                x = -1;
+            else
+                x = azimuth;
+        }
 
         String mouse = "mouse " + x + " " + y + "\n";
         final byte[] mouse_buf = mouse.getBytes();

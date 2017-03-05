@@ -23,6 +23,20 @@
         android:padding="10dp"/>
 
     <Button
+        android:id="@+id/delta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+
+        android:text="Delta"
+        android:textStyle="bold"
+        android:background="@drawable/circle"
+        android:elevation="20dp"
+        android:textColor="#efefef"
+        android:padding="10dp"/>
+
+    <Button
         android:id="@+id/reload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
