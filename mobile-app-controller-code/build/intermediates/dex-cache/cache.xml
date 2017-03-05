@@ -2,6 +2,7 @@
 <items version="2" >
 
     <item
+<<<<<<< Updated upstream
         jar="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.0/jars/classes.jar"
         jumboMode="false"
         revision="24.0.1"
@@ -112,6 +113,118 @@
         revision="24.0.1"
         sha1="045be695d968dd707691cc55d23746dbf8cf569a">
         <dex dex="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0-5998b5b716c526edd5e898bd2d52b5380615a233.jar" />
+=======
+        jar="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="60d7b23621d31e6f42f4f76f16af467e57a20cda">
+        <dex dex="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.0-b2f4f4677099021ff470f06ae56d4cf2cbe1cc12.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="f9b41622897665678d31d78e57a361cb0cebcb0d">
+        <dex dex="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\pre-dexed\debug\classes-8fb73c3d34458e4bd3fd722ed357e950de818e50.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="771b3cc0e597b54da25f8086ba73180c59c6bc71">
+        <dex dex="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.0-d7e6ca5bd14d1b724aceceb3c4fa81a72549eca3.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="032a4b53def5e2ceedfc2e793b126c0163cfa1dd">
+        <dex dex="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.0-47a10b1d4aed54d9dd6eb2668c88086ee9d3b169.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="6eb9107eb34d2fe2b020662b7fbbec991dcba846">
+        <dex dex="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\pre-dexed\debug\classes-b68e212f5b1b80d9ba70394ba52ec3ee14331884.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\exploded-aar\com.jmedeisis\bugstick\0.2.2\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="6ccb87c4b293be4a4cf1e2678e5f9195dfe907b6">
+        <dex dex="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\pre-dexed\debug\classes-af83eeb40eb28a9d06a512ddf4bdc824627e50eb.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="beac40bcc8a320a896dd15f5109cfcaea5e1e0e3">
+        <dex dex="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\pre-dexed\debug\classes-faf328f0e79ade0f5ecaaa3045a4f80565afb017.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="fcc945a86ebcbf527429acb8216ec7dae2c06417">
+        <dex dex="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\pre-dexed\debug\classes-215c237f6dfbfbc1f065cb8f2349863065aae33b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ty\AppData\Local\Android\android-sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.0\support-annotations-24.2.0.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="6be858a75633b1f0a2d24cad740db57775cb6871">
+        <dex dex="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\pre-dexed\debug\support-annotations-24.2.0-ea62ad1d31b5a408164a9978bb76e73c79e3c077.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="f3ee23ef25c9a8fe3d40246d0b7097267963a612">
+        <dex dex="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\pre-dexed\debug\classes-24d9d763a20bac8cab4dc6a4c794cbe3c50f6f7c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="c3c638be6e650b165ab9ae144857b64e82787fad">
+        <dex dex="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\pre-dexed\debug\classes-636c1961933924184afddd684b35d12b91fb3735.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="d8bd2268fdcbfd52c76ade65d9900cd8def93a44">
+        <dex dex="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\pre-dexed\debug\classes-5085317a1249c729d77a42bfdd0d39c7dece19f0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="045be695d968dd707691cc55d23746dbf8cf569a">
+        <dex dex="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.0-450001f9e832c04ab386b4dd228dcf8bfaf0f6ac.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="6e02e34594ebe9c0501ffda8dd48497f81b82977">
+        <dex dex="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.0-4c7d7995ba74169d0889b6193f506e5d10e51e5f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="c84e216d9bf618464d6b9564d71d9a656433e7c4">
+        <dex dex="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\pre-dexed\debug\classes-45245bb452143f80975bd3788af118c29a9c5527.jar" />
+    </item>
+    <item
+        jar="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="45f5eda279825ff470e3f51019d374d1ef61e000">
+        <dex dex="C:\Users\Ty\Desktop\Work\HackUTD\mobile-app-controller-code\app\build\intermediates\pre-dexed\debug\classes-88262e63b33b450dfb5b1be9a7235e61bb9f8d2c.jar" />
+>>>>>>> Stashed changes
     </item>
 
 </items>

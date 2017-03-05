@@ -328,7 +328,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
     }
 
-    int x = 1;
     // Compute the three orientation angles based on the most recent readings from
     // the device's accelerometer and magnetometer.
     public void updateOrientationAngles() {
