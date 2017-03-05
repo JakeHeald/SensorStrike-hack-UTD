@@ -25,6 +25,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jmedeisis.bugstick.Joystick;
+import com.jmedeisis.bugstick.JoystickListener;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -69,7 +72,24 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Joystick joystick = (Joystick) findViewById(R.id.joystick);
+        joystick.setJoystickListener(new JoystickListener() {
+            @Override
+            public void onDown() {
+                // .. #TODO
 
+            }
+
+            @Override
+            public void onDrag(float degrees, float offset) {
+                // .. #TODO
+            }
+
+            @Override
+            public void onUp() {
+                // .. #TODO
+            }
+        });
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mSensor = null;
         out = (TextView) findViewById(R.id.out);
@@ -190,7 +210,7 @@ int i = 5;
 
         }
 
-        but = (Button) findViewById(R.id.shoot);
+        /*but = (Button) findViewById(R.id.shoot);
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -202,7 +222,7 @@ int i = 5;
                 }
 
             }
-        });
+        });*/
 
         btn_quit = (Button) findViewById(R.id.quit);
         btn_quit.setOnClickListener(new View.OnClickListener() {
