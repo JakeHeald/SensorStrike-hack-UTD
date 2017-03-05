@@ -9,14 +9,23 @@ This app allows you to emulate keyboard strokes and mouse clicks with your smart
 ## How we built it
 Used Android Studio for game controller platform and Java to run the control server on our PC. The Android device is able to talk to the computer through the use of Bluetooth.
 
+## How to run the code
+1. Fill in [Mac Address](https://kb.netgear.com/1005/How-to-find-a-MAC-address) in *mobile-app-controller-code/../MainActivity.java* for the corresponding Bluetooth Server running device (Usually a computer).
+2. Pair Bluetooth between your Bluetooth server device and your Android device that contains Orientation Data (You can find out if it works by testing on any  given [Android Sensor App](https://play.google.com/store/search?q=sensor%20apps%20for%20android&c=apps&hl=en)).
+3. Build *mobile-app-controller-code/* in Android Studio onto your compatible Android device so your Android device will start sending out a connection request once you press the "Ready" button.
+4. Enter CS:GO and start your game, and aim your phone towards your computer screen, phone screen facing to the left.
+5. Execute Server-side code in order to receive server connection request from Android device.
+6. Start an experience of playing your CS:GO game without a mouse or keyboard.
+
 ## Challenges we ran into
-- Finding a good Bluetooth library to use for the server side program (most online examples and tutorials were unbelievably outdated)
-- Spending a lot of time backlogged researching over data outputs from semi-deprecated Android sensor functionalities
-- Developing an efficient noise reducing algorithm that provides the least amount of shuddering movement and semi-optimal smooth gameplay 
+- Finding a good Bluetooth library to use for the server side program (most online examples and tutorials were unbelievably outdated).
+- Spending a lot of time backlogged researching over data outputs from semi-deprecated Android sensor functionalities.
+- Developing an efficient noise reducing algorithm that provides the least amount of shuddering movement and semi-optimal smooth gameplay .
 
 ## Accomplishments that we're proud of
-- Learned to communicate between different devices through Bluetooth.
 - Made a mobile app that provided a new style of gameplay for and FPS shooter.
+- Learned to communicate between different devices through Bluetooth.
+- Created a product that could be formatted to an infinite number of games.
 
 ## What we learned
 - We learned how to set up with a server using Bluetooth and connect via ports.
@@ -25,3 +34,15 @@ Used Android Studio for game controller platform and Java to run the control ser
 
 ## What's next for SensorStrike.
 We hope to offer native support for games other than CS:GO in the future. We also plan to increase the accuracy of our mouse tracking system, although we acknowledge we may be limited by the inherent inaccuracies of mobile sensors. Most importantly, we hope to expand on the feature set of SensorStrike by implementing new and creative ways of supporting new key bindings and controls.
+
+## Online Resources
+- [Bugstick - Android Java UI Joystick Interface on Github](https://github.com/justasm/Bugstick) by {justasm](https://github.com/justasm)
+
+- [Noise Reduction Algorithm Reference](https://terpconnect.umd.edu/~toh/spectrum/Smoothing.html)
+
+- [Bluetooth Java Server Library](http://snapshot.bluecove.org/distribution/download/2.1.1-SNAPSHOT/2.1.1-SNAPSHOT.62/)
+
+- [StackOverflow: Communication Through Bluetooh from Java server to Android Client](http://stackoverflow.com/questions/10929767/send-text-through-bluetooth-from-java-server-to-android-client?rq=1)
+
+- [Java Robot API Docs](https://docs.oracle.com/javase/7/docs/api/java/awt/Robot.html)
+
