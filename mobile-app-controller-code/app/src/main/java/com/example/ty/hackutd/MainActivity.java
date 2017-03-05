@@ -28,11 +28,11 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener{
 
-
     private static String address = "34:02:86:BA:E8:E2";
 
     TextView out;
     Button btn_quit;
+    Button btn_reload;
     private SensorManager mSensorManager;
     private Sensor mSensor;
     private static final int REQUEST_ENABLE_BT = 1;
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     String left_click = "left_click\n";
     String right_click = "right_click\n";
     String release = "release\n";
+    String reload = "reload\n";
     String degrees_str = "\n";
 
     String quit = "quit\n";
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     final byte[] left_click_buf = left_click.getBytes();
     final byte[] right_click_buf = right_click.getBytes();
     final byte[] release_buf = release.getBytes();
+    final byte[] reload_buf = reload.getBytes();
 
     final byte[] quit_buf = quit.getBytes();
 
@@ -66,6 +68,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private final float[] mRotationMatrix = new float[9];
     private final float[] mOrientationAngles = new float[3];
 
+    private float base_az;
+    private float base_roll;
 
     /** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
@@ -100,6 +104,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         mSensor = null;
         out = (TextView) findViewById(R.id.out);
 
+
+        //Bundle bundle = getIntent().getExtras();
+//        base_az = bundle.getFloat("azimuth");
+//        base_roll = bundle.getFloat("roll");
+        //System.out.println("base_data: " + base_az + "   " + base_roll);
 
         out.append("\n...In onCreate()...");
 
@@ -205,7 +214,21 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                onBackPressed();
 
+            }
+        });
+
+        btn_reload = (Button) findViewById(R.id.reload);
+        btn_reload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    out.append("quit\n");
+                    outStream.write(reload_buf);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }

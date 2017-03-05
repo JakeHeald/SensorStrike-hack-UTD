@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:background="@color/base_background"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <TextView android:text="Orient your phone towards the screen, then press ready to begin"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/out"
+        android:layout_width="wrap_content"
+        android:textColor="#efefef"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/ready"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ready"
+        android:textSize="25sp"
+        android:elevation="30dp"
+        android:background="@drawable/drawable_circle"
+        android:padding="30dp"/>
+
+</RelativeLayout>
+<!-- From: file:/C:/Users/Ty/Desktop/Work/HackUTD/app/src/main/res/layout/activity_launcher.xml -->

@@ -42,6 +42,9 @@ public class Launcher extends AppCompatActivity implements SensorEventListener {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+               // intent.putExtra("azimuth",azimuth);
+               // intent.putExtra("roll", roll);
+
                 startActivity(intent);
             }
         });
@@ -58,10 +61,10 @@ public class Launcher extends AppCompatActivity implements SensorEventListener {
     public void onResume() {
         super.onResume();
 
-        mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
-                SensorManager.SENSOR_DELAY_GAME);
-        mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),
-                SensorManager.SENSOR_DELAY_GAME);
+        //mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+        //        SensorManager.SENSOR_DELAY_GAME);
+        //mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),
+        //        SensorManager.SENSOR_DELAY_GAME);
 
     }
     // Sensor Stuff

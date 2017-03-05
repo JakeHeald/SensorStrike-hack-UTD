@@ -7,13 +7,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
 
-    <TextView android:text="Orient your phone towards the screen, then press ready to begin"
+    <TextView android:text="Point your phone towards the screen to calibrate device."
         android:layout_centerHorizontal="true"
         android:id="@+id/out"
         android:layout_width="wrap_content"
         android:textColor="#efefef"
         android:textSize="30sp"
         android:gravity="center"
+        android:textStyle="italic"
         android:layout_height="wrap_content" />
 
     <Button
