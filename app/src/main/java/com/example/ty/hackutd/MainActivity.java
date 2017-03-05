@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private static String address = "34:02:86:BA:E8:E2";
 
     TextView out;
-    Button but;
     Button btn_quit;
     private SensorManager mSensorManager;
     private Sensor mSensor;
@@ -77,8 +76,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         joystick.setJoystickListener(new JoystickListener() {
             @Override
             public void onDown() {
-                // .. #TODO
-
             }
 
             @Override
@@ -92,7 +89,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
             @Override
             public void onUp() {
-                // .. #TODO
                 try {
                     outStream.write(release_buf);
                 } catch (IOException e) {
@@ -184,9 +180,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         }
 
-        final byte[] msgBuffer = message.getBytes();
-
-
         try {
             out.append("...Attempting to write to outStream\n");
             outStream.write(left_click_buf);
@@ -201,20 +194,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             msg = msg +  ".\n\nCheck that the SPP UUID: " + MY_UUID.toString() + " exists on server.\n\n";
 
         }
-
-        /*but = (Button) findViewById(R.id.shoot);
-        but.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    out.append("boom\n");
-                    outStream.write(left_click_buf);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        });*/
 
         btn_quit = (Button) findViewById(R.id.quit);
         btn_quit.setOnClickListener(new View.OnClickListener() {
@@ -261,7 +240,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         // Don't receive any more updates from either sensor.
         mSensorManager.unregisterListener(this);
 
-        //out.append("\n...Hello\n");
         InputStream inStream;
         try {
             inStream = btSocket.getInputStream();
@@ -320,7 +298,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
 
 
-    // Sensor Shit
+    // Sensor Stuff
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -367,9 +345,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             mRotationMatrix[i] = adjustedRotationMatrix[i];
         }
         // "mRotationMatrix" now has up-to-date information.
-
-
-
         mSensorManager.getOrientation(mRotationMatrix, mOrientationAngles);
 
         // "mOrientationAngles" now has up-to-date information.
@@ -395,8 +370,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         else
             x = azimuth;
 
-        //System.out.println("x: " + x + ", y" + y);
-
         String mouse = "mouse " + x + " " + y + "\n";
         final byte[] mouse_buf = mouse.getBytes();
         try {
@@ -404,11 +377,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         } catch (IOException e) {
             e.printStackTrace();
         }
-        /// double yaw = Math.atan2(mRotationMatrix[3],mRotationMatrix[0]);
-        //double pitch = Math.atan2(-mRotationMatrix[6], Math.sqrt(mRotationMatrix[7] * mRotationMatrix[7] + mRotationMatrix[8] * mRotationMatrix[8]));
-        //double roll = Math.atan2(mRotationMatrix[7], mRotationMatrix[8]);
-
-
     }
 
 
