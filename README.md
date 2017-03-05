@@ -12,8 +12,8 @@
 - After opening the app and establishing a connection with your computer, you should see a controller with several buttons (Quit, R) and an azure circle in the center of a blackened circle (Joystick).
 - Moving up on the Joystick represents 'W', Left for 'A', Right for 'D', and Down for 'S'.
 - Moving diagonally on the joystick will press down two of the corresponding keys.
-- Pressing 'R' will Reload your weapon
-- Pressing 'Quit' will end your connection with the computer
+- Pressing 'R' will Reload your weapon.
+- Pressing 'Quit' will end your connection with the computer.
 
 ## Inspiration
 Counter Strike: Global Offensive is perhaps the most realistic simulation of warfare available today. This battle simulator pits keyboard warriors against each other, and the ones more versed in the art of war usually prevailed. Although CS:GO was the pinnacle of human achievement, we believed that we could improve upon the immersive realism of this gem. The common mouse (of the electronic variety) has long been associated with computers and computer gameplay, but if you stop to think about it, its interface is unfun and uninteractive. Our idea, SensorStrike, eliminates this barrier by effectively replacing the obsolete gaming mouse with something far more natural. Admit it, none of us can take our hands off of our smartphones, so we might as well use them for everything - including gaming. We've brought the future to the present, and it is our wish to share this monumental moment with you. Consider this your invite.
