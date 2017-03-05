@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/theCreedo/Code/HackUTD/app/build/intermediates/exploded-aar/com.jmedeisis/bugstick/0.2.2/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="6ccb87c4b293be4a4cf1e2678e5f9195dfe907b6">
+        <dex dex="/Users/theCreedo/Code/HackUTD/app/build/intermediates/pre-dexed/debug/classes-4cf232df468d1db30b0f69de950c2d96bdff7536.jar" />
+    </item>
+
+</items>
