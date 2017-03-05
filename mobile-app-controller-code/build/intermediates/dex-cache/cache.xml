@@ -2,11 +2,116 @@
 <items version="2" >
 
     <item
-        jar="/Users/theCreedo/Code/HackUTD/app/build/intermediates/exploded-aar/com.jmedeisis/bugstick/0.2.2/jars/classes.jar"
+        jar="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="45f5eda279825ff470e3f51019d374d1ef61e000">
+        <dex dex="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/pre-dexed/debug/classes-22004e358074b521ff77039117ac90bfd66fe9ba.jar" />
+    </item>
+    <item
+        jar="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="d8bd2268fdcbfd52c76ade65d9900cd8def93a44">
+        <dex dex="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/pre-dexed/debug/classes-48ac1b41274c46ec109ba30ec1485fb312e67980.jar" />
+    </item>
+    <item
+        jar="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="f3ee23ef25c9a8fe3d40246d0b7097267963a612">
+        <dex dex="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/pre-dexed/debug/classes-01c00164a2db89e9220f6360392ff3b8a43056e5.jar" />
+    </item>
+    <item
+        jar="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="fcc945a86ebcbf527429acb8216ec7dae2c06417">
+        <dex dex="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/pre-dexed/debug/classes-5d6471271bf4e69fddaad2f80c81b2eafe5aa8b4.jar" />
+    </item>
+    <item
+        jar="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="6e02e34594ebe9c0501ffda8dd48497f81b82977">
+        <dex dex="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0-10b76542dc47425a878a8ba70b11c44bdeda074e.jar" />
+    </item>
+    <item
+        jar="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="60d7b23621d31e6f42f4f76f16af467e57a20cda">
+        <dex dex="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0-d62f6a51cbd5ea4c6c5252113f66d66d3685e639.jar" />
+    </item>
+    <item
+        jar="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="032a4b53def5e2ceedfc2e793b126c0163cfa1dd">
+        <dex dex="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0-c68a34c03bd68ff6af60b39f0f1b6b5866930eaf.jar" />
+    </item>
+    <item
+        jar="/Users/theCreedo/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.0/support-annotations-24.2.0.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="6be858a75633b1f0a2d24cad740db57775cb6871">
+        <dex dex="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.0-bbdb9fe00ee33e806b40f0fb46284a0dc00a7554.jar" />
+    </item>
+    <item
+        jar="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="c84e216d9bf618464d6b9564d71d9a656433e7c4">
+        <dex dex="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/pre-dexed/debug/classes-9af7a2d7d4dff914cccc93d87dfa903c33ba3a85.jar" />
+    </item>
+    <item
+        jar="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="f9b41622897665678d31d78e57a361cb0cebcb0d">
+        <dex dex="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/pre-dexed/debug/classes-8aba01c9fcd9e1fb527dec0286f51fb4d0bceec0.jar" />
+    </item>
+    <item
+        jar="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="771b3cc0e597b54da25f8086ba73180c59c6bc71">
+        <dex dex="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0-5c2634f33e1be10c0fd72e87b3eaa32192eeab1b.jar" />
+    </item>
+    <item
+        jar="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/exploded-aar/com.jmedeisis/bugstick/0.2.2/jars/classes.jar"
         jumboMode="false"
         revision="24.0.1"
         sha1="6ccb87c4b293be4a4cf1e2678e5f9195dfe907b6">
-        <dex dex="/Users/theCreedo/Code/HackUTD/app/build/intermediates/pre-dexed/debug/classes-4cf232df468d1db30b0f69de950c2d96bdff7536.jar" />
+        <dex dex="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/pre-dexed/debug/classes-05586a7b25de5a5619f4fba7f86491db66aced69.jar" />
+    </item>
+    <item
+        jar="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="c3c638be6e650b165ab9ae144857b64e82787fad">
+        <dex dex="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/pre-dexed/debug/classes-d7a1af01ba0e6d41410b1ddf35493ba75c70e5c5.jar" />
+    </item>
+    <item
+        jar="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="beac40bcc8a320a896dd15f5109cfcaea5e1e0e3">
+        <dex dex="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/pre-dexed/debug/classes-c5f9f36540c2833c68e5b035b3a25541bdb6fecf.jar" />
+    </item>
+    <item
+        jar="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="6eb9107eb34d2fe2b020662b7fbbec991dcba846">
+        <dex dex="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/pre-dexed/debug/classes-2120644eaa37dfee77e7d383bf2cf8ef0abb3e76.jar" />
+    </item>
+    <item
+        jar="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="045be695d968dd707691cc55d23746dbf8cf569a">
+        <dex dex="/Users/theCreedo/Code/HackUTD/mobile-app-controller-code/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0-5998b5b716c526edd5e898bd2d52b5380615a233.jar" />
     </item>
 
 </items>
