@@ -59,11 +59,14 @@ public class MainActivity extends AppCompatActivity {
     //private static String address = "00:10:60:AA:B9:B2";
     String left_click = "left_click\n";
     String right_click = "right_click\n";
+    String release = "release\n";
+    String degrees_str = "\n";
 
     String quit = "quit\n";
 
     final byte[] left_click_buf = left_click.getBytes();
     final byte[] right_click_buf = right_click.getBytes();
+    final byte[] release_buf = release.getBytes();
 
     final byte[] quit_buf = quit.getBytes();
 
@@ -82,12 +85,21 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onDrag(float degrees, float offset) {
-                // .. #TODO
+                try {
+                    outStream.write(("d " + degrees + "\n").getBytes());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
             public void onUp() {
                 // .. #TODO
+                try {
+                    outStream.write(release_buf);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
