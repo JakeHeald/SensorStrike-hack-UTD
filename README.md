@@ -1,5 +1,9 @@
 # SensorStrike
 
+- Devpost link: https://devpost.com/software/hack-utd
+
+- CS:GO Demo Play: https://www.youtube.com/watch?v=JO4VNabCiHM
+
 ## How to run the code
 1. Fill in [Mac Address](https://kb.netgear.com/1005/How-to-find-a-MAC-address) in *mobile-app-controller-code/../MainActivity.java* for the corresponding Bluetooth Server running device (Usually a computer).
 2. Pair Bluetooth between your Bluetooth server device and your Android device that contains Orientation Data (You can find out if it works by testing on any  given [Android Sensor App](https://play.google.com/store/search?q=sensor%20apps%20for%20android&c=apps&hl=en)).
@@ -53,3 +57,5 @@ We hope to offer native support for games other than CS:GO in the future. We als
 
 - [Java Robot API Docs](https://docs.oracle.com/javase/7/docs/api/java/awt/Robot.html)
 
+## Awards
+- Awarded "Mobile-Track" Award at HackUTD 2017 
