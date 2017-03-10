@@ -28,7 +28,10 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener{
 
-    private static String address = "34:02:86:BA:E8:E2";
+    //private static String jake_address = "34:02:86:BA:E8:E2";
+    private static String address = "5C:C5:D4:A5:1D:3C";
+    //private static String address = "F4:5C:89:CA:2C:25";
+
 
     TextView out;
     Button btn_quit;
@@ -154,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             e.printStackTrace();
 
         }
-        out.append(btSocket.getRemoteDevice().getName());
+//        out.append(btSocket.getRemoteDevice().getName());
 
         // Discovery is resource intensive.  Make sure it isn't going on
         // when you attempt to connect and pass your message.
@@ -345,11 +348,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
     }
 
-
-
-
     // Sensor Stuff
-
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         // Do something here if sensor accuracy changes.
@@ -419,8 +418,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             else {
                 x = azimuth - prev_azimuth;
                 y = roll - prev_roll;
+                //System.out.println("delta: " + x + " " + y);
             }
-
             prev_azimuth = azimuth;
             prev_roll = roll;
         }
@@ -441,6 +440,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
 
         String mouse = "mouse " + x + " " + y + "\n";
+        //System.out.println(mouse);
         final byte[] mouse_buf = mouse.getBytes();
         try {
             outStream.write(mouse_buf);

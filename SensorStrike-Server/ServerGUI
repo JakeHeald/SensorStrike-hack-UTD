@@ -1,0 +1,43 @@
+#!/usr/bin/python
+
+from tkinter import *
+from bluetooth import *
+
+class RedTooth(Frame):
+    pass
+
+
+def select_device():
+    lab = Label(top, text='Hey hey\n')
+    lab.pack()
+    button['fg'] = 'black'
+
+
+def discover():
+    print("performing inquiry...")
+    nearby_devices = discover_devices(
+        duration=8, lookup_names=True, flush_cache=True, lookup_class=False)
+    print("found %d devices" % len(nearby_devices))
+    for addr, name in nearby_devices:
+        try:
+            print("  %s - %s" % (addr, name))
+        except UnicodeEncodeError:
+            print("  %s - %s" % (addr, name.encode('utf-8', 'replace')))
+
+
+top = Tk()
+top.title("SensorStrike Bluetooth")
+top.geometry("400x400")
+
+devices = ['ty devie ', 'unkown ', ' test ']
+lista = Listbox(top)
+for i in devices:
+    lista.insert(0, i)
+lista.pack()
+
+button = Button(top, text='Hit me', command=select_device)
+button.pack()
+
+discover()
+
+top.mainloop()

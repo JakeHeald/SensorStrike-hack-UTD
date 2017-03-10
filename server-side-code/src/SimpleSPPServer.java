@@ -83,14 +83,14 @@ public class SimpleSPPServer implements Runnable{
         ArrayList<Integer> xbuffer = new ArrayList<Integer>();
         ArrayList<Integer> ybuffer = new ArrayList<Integer>();
         lastBufferTime = System.currentTimeMillis();
-
+        long total = 0;
         while (true) {
             String lineRead=bReader.readLine();
 //          System.out.println(lineRead);
             if(lineRead == null)
                 break; 
             if(lineRead.charAt(0) == 'm') {
-                String array[] = lineRead.split(" "); 
+                String array[] = lineRead.split(" ");
                 int move_width = (int)(width *(Float.parseFloat(array[1]) + 1.0f) / 2.0f);
                 int move_height = (int)(height * (-Float.parseFloat(array[2]) + 1.0f)/ 2.0f);
 
@@ -136,7 +136,7 @@ public class SimpleSPPServer implements Runnable{
                     //r.mouseMove(x_median, y_median);
                     
                 }
-                
+
                 //System.out.println("width: " + move_width + "   height: " + move_height);
                 
             }
@@ -186,7 +186,7 @@ public class SimpleSPPServer implements Runnable{
                 r.keyRelease(KeyEvent.VK_R);
             }
         }
-        
+
         runMe = false;
         System.out.println("Done Looping");
         
@@ -225,6 +225,7 @@ public class SimpleSPPServer implements Runnable{
     @Override
     public void run() {
         // TODO Auto-generated method stub
+
         while (runMe) {
             long timeElapsed = (System.currentTimeMillis() - lastBufferTime);
             double factor = timeElapsed / (bufferTime*1.0);
@@ -235,10 +236,10 @@ public class SimpleSPPServer implements Runnable{
             //System.out.println("curX - prevX" + (curX - prevX *1.0)/(1.0 *bufferTime));
 
             r.mouseMove(
-                    (int)(prevX + factor * (curX - prevX * 1.0)/*/(1.0*bufferTime)*/), 
-                    (int)(prevY + factor * (curY - prevY  * 1.0)/*/(1.0*bufferTime)*/));
+                    (int)(prevX + factor * (curX - prevX * 1.0)),
+                    (int)(prevY + factor * (curY - prevY  * 1.0)));
             
         }
-        
+
     }
 }
