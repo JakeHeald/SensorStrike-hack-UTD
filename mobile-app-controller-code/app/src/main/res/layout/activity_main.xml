@@ -1,14 +1,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:background="@color/base_background"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="@drawable/img_honeycomb"
+    android:layout_height="match_parent"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    tools:context=".MainActivity">
 
     <TextView android:text="@string/hello_world"
         android:id="@+id/out"
         android:textSize="0sp"
+        android:elevation="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -52,19 +55,17 @@
 
     <com.jmedeisis.bugstick.Joystick
         android:id="@+id/joystick"
+        android:elevation="10dp"
         android:layout_width="@dimen/base_size"
         android:layout_height="@dimen/base_size"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:background="@drawable/bg_base">
-
-        <!-- You may use any View here. -->
-
         <Button
+            android:elevation="20dp"
             android:layout_width="@dimen/stick_size"
             android:layout_height="@dimen/stick_size"
             android:background="@drawable/bg_stick" />
-
     </com.jmedeisis.bugstick.Joystick>
 
     <RelativeLayout
@@ -75,6 +76,7 @@
         android:layout_height="wrap_content">
     </RelativeLayout>
     <TextView
+        android:elevation="70dp"
         android:layout_above="@id/anchor"
         android:gravity="center"
         android:text="W"
@@ -88,6 +90,7 @@
         android:layout_marginBottom="110dp"/>
 
     <TextView
+        android:elevation="70dp"
         android:layout_toLeftOf="@id/anchor"
         android:gravity="center"
         android:text="A"
@@ -101,6 +104,7 @@
         android:layout_marginRight="110dp"/>
 
     <TextView
+        android:elevation="70dp"
         android:layout_below="@id/anchor"
         android:gravity="center"
         android:text="S"
@@ -114,6 +118,7 @@
         android:layout_marginTop="110dp"/>
 
     <TextView
+        android:elevation="70dp"
         android:layout_toRightOf="@id/anchor"
         android:gravity="center"
         android:text="D"
